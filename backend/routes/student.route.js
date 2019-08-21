@@ -43,4 +43,27 @@ studentRoute.route('/newProject').post((req, res) => {
     );    
 })
 
+studentRoute.route('/addGrades/:username').post((req, res) =>{
+    let username = req.params.username;
+    
+    Student.find(
+        
+        {class:"Dev web", username : username},
+        ((err, data) => {
+            if (err){
+                console.error(err)
+            }
+            console.log(data)
+            data.map((student) => {
+                let myObj = {comments: req.body.comments, grade: req.body.grades}
+                student.projects.push(myObj)
+                student.save();
+                console.log(student.projects)
+            })
+            res.send("les notes ont bien été ajouté")
+        })
+
+    )
+})
+
 module.exports = studentRoute;

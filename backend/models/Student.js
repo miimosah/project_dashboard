@@ -21,7 +21,7 @@ let Student = new Schema({
     projects:[
         {
          name: String,
-         grade: Number,
+         grade: String,
          comments: String
         }
     ],
