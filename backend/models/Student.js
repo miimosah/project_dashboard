@@ -19,7 +19,6 @@ let Student = new Schema({
         type: String
     },
     projects:[
-
         {
          name: String,
          grade: Number,
@@ -29,6 +28,9 @@ let Student = new Schema({
          //[{"name" : "", "grade" : "", "comments" : ""}]
     status:{
         type: Boolean // Student : 0, Admin: 1
+    },
+    class:{
+        type: String
     }
 
 }, {

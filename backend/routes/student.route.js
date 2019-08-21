@@ -29,9 +29,18 @@ studentRoute.route('/allStudents').get((req, res) => {
 
 //Add a project
 
-studentRoute.route('/newProject').post((req, res) =>{
-    Student.update((error, data) => {
-    })
+studentRoute.route('/newProject').post((req, res) => {
+    Student.find(
+        {class: "Dev web"},
+        ((err, data) => {
+            data.map((student) => {
+                student.projects.push(req.body)
+                student.save();
+                console.log(student.projects)
+            })
+            res.send("le projet a bien été ajouté")           
+        })    
+    );    
 })
 
 module.exports = studentRoute;
