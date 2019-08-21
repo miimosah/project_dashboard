@@ -27,4 +27,11 @@ studentRoute.route('/allStudents').get((req, res) => {
     })
 });
 
+//Add a project
+
+studentRoute.route('/newProject').post((req, res) =>{
+    Student.update((error, data) => {
+    })
+})
+
 module.exports = studentRoute;

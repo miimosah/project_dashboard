@@ -17,7 +17,20 @@ let Student = new Schema({
     },
     password: {
         type: String
+    },
+    projects:[
+
+        {
+         name: String,
+         grade: Number,
+         comments: String
+        }
+    ],
+         //[{"name" : "", "grade" : "", "comments" : ""}]
+    status:{
+        type: Boolean // Student : 0, Admin: 1
     }
+
 }, {
     collection: 'students'
 })

@@ -7,6 +7,7 @@ let express = require('express'),
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
+
 mongoose.connect(dbConfig.db, {
     useNewUrlParser: true
 }).then(() => {
@@ -20,6 +21,7 @@ mongoose.connect(dbConfig.db, {
 // Setting up port with express js
 const studentRoute = require('../backend/routes/student.route')
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
