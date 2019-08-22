@@ -25,7 +25,16 @@ let Student = new Schema({
          comments: String
         }
     ],
-         //[{"name" : "", "grade" : "", "comments" : ""}]
+    
+    absence: [
+        { date: String }
+    ],    
+    retard: [
+        { 
+            date: String,
+          nbMinutes: Number
+         }
+    ],         //[{"name" : "", "grade" : "", "comments" : ""}]
     status:{
         type: Boolean // Student : 0, Admin: 1
     },

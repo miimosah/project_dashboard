@@ -64,6 +64,53 @@ studentRoute.route('/addGrades/:username').post((req, res) =>{
         })
 
     )
+ })
+
+studentRoute.route('/addAbsence/:username').post((req, res) => {
+    let username = req.params.username;
+
+    Student.find(
+
+        { class: "Dev web", username: username },
+        ((err, data) => {
+            if (err) {
+                console.error(err)
+            }
+            
+            data.map((student) => {
+                let myDate = { date: req.body.date }
+                student.absence.push(myDate)
+                student.save();
+               // console.log(student.projects)
+            })
+            res.send("les dates ont bien été ajouté")
+        })
+
+    )
 })
 
+
+
+studentRoute.route('/addRetard/:username').post((req, res) => {
+    let username = req.params.username;
+
+    Student.find(
+
+        { class: "Dev web", username: username },
+        ((err, data) => {
+            if (err) {
+                console.error(err)
+            }
+
+            data.map((student) => {
+                let nbMinutes = { date: req.body.date, nbMinutes: req.body.nbMinutes }
+                student.retard.push(nbMinutes)
+                student.save();
+                // console.log(student.projects)
+            })
+            res.send("les retards ont bien été ajouté")
+        })
+
+    )
+})
 module.exports = studentRoute;
