@@ -94,7 +94,8 @@ studentRoute.route('/addAbsence/:username').post((req, res) => {
 studentRoute.route('/addRetard/:username').post((req, res) => {
     let username = req.params.username;
 
-    Student.find({ class: "Dev web", username: username },
+    Student.find(
+        { class: "Dev web", username: username },
         ((err, data) => {
             if (err) {
                 console.error(err)

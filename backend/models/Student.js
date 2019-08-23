@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 // Define collection and schema
 let Student = new Schema({
+    
+   
     firstname: {
         type: String
     },
@@ -18,6 +22,7 @@ let Student = new Schema({
     password: {
         type: String
     },
+    
     projects:[
         {
          name: String,
@@ -44,6 +49,8 @@ let Student = new Schema({
 
 }, {
     collection: 'students'
-})
+    })
+
+
 
 module.exports = mongoose.model('Student', Student)
