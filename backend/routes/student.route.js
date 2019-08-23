@@ -66,6 +66,43 @@ studentRoute.route('/addGrades/:username').post((req, res) =>{
     )
  })
 
+ studentRoute.route('/addGrades/:projectName/:username').post((req, res) => {
+     let username = req.params.username;
+     let projectName = req.params.projectName;
+
+     Student.find({
+             username: username,
+             class: "Dev web",
+             projects: {
+                 $all: [{
+                     "$elemMatch": {
+                         name: projectName
+                     }
+                 }]
+             }
+         },
+         ((err, data) => {
+             if (err) {
+                 console.error(err)
+             }
+             console.log(data)
+             // res.send(data)
+             data.map((students) => {
+                 let myProject = students.projects.filter
+                 console.log(myProject)
+                 // let myObj = {comments: req.body.comments, grade: req.body.grades}
+                 // students.projects.push(myObj)
+                 // students.save();
+                 // console.log(students.projects)
+             })
+             res.send("les notes ont bien été ajouté")
+         })
+
+     )
+ })
+
+ 
+
 studentRoute.route('/addAbsence/:username').post((req, res) => {
     let username = req.params.username;
 
