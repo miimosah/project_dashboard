@@ -88,12 +88,13 @@ studentRoute.route('/addGrades/:username').post((req, res) =>{
              console.log(data)
              // res.send(data)
              data.map((students) => {
+                 projectName = [];
                  let myProject = students.projects.filter
                  console.log(myProject)
-                 // let myObj = {comments: req.body.comments, grade: req.body.grades}
-                 // students.projects.push(myObj)
-                 // students.save();
-                 // console.log(students.projects)
+                  let myObj = {comments: req.body.comments, grade: req.body.grades}
+                 students.projectName.push(myObj)
+                  students.save();
+                  console.log(students.projects)
              })
              res.send("les notes ont bien été ajouté")
          })

@@ -8,28 +8,36 @@ let Student = new Schema({
     
    
     firstname: {
-        type: String
+        type: String,
+        default: ''
     },
     lastname: {
-        type: String
+        type: String,
+        default: ''
     },
     email: {
-        type: String
+        type: String,
+        default: ''
     },
     username: {
-        type: String
+        type: String,
+        default: ''
     },
     password: {
-        type: String
+        type: String,
+        default: ''
     },
     
     projects:[
         {
-         name: String,
-         grade: String,
-         comments: String
+             name: String,
+             grade: String,
+             comments: String
+        
         }
+        
     ],
+    
     
     absence: [
         { date: String }
@@ -52,5 +60,12 @@ let Student = new Schema({
     })
 
 
+Student.methods.genereteHash = (password) => {
+    return bcrypt.hashSync(bcrypt, genSaltSync(8), null);
+}
+
+Student.methods.validPassword = (password) => {
+    return bcrypt.compareSync(bcrypt, this.password);
+}
 
 module.exports = mongoose.model('Student', Student)

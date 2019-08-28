@@ -1,3 +1,4 @@
+
 let express = require('express'),
     path = require('path'),
     mongoose = require('mongoose'),
@@ -22,11 +23,13 @@ mongoose.connect(dbConfig.db, {
 const studentRoute = require('../backend/routes/student.route')
 const app = express();
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
+
 // app.use(express.static(path.join(__dirname, 'dist/mean-stack-crud-app')));
 // app.use('/', express.static(path.join(__dirname, 'dist/mean-stack-crud-app')));
 app.use('/', studentRoute)
