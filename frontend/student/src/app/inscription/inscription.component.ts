@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router } from '@angular/router';
 import { StudentService } from '../student.service';
 import { FormGroup, FormControlName, FormControl } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inscription',
@@ -12,8 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 
 export class InscriptionComponent implements OnInit {
+  
   ngOnInit(): void {
     throw new Error("Method not implemented.");
+    
   }
 
   student = new FormGroup({
@@ -22,11 +23,12 @@ export class InscriptionComponent implements OnInit {
     lastname: new FormControl(''),
     username: new FormControl(''),
     email: new FormControl(''),
+    class: new FormControl(''),
     password: new FormControl('')
 
   });
 
-  constructor(private StudentService: StudentService) {
+  constructor(private StudentService: StudentService, private router: Router) {
 
   }
 
@@ -36,6 +38,7 @@ export class InscriptionComponent implements OnInit {
     let studentData = this.student.value;
 
     this.StudentService.validForm(studentData).then(() => {
+      this.StudentService.validForm(studentData);
 
       console.log(studentData);
     })

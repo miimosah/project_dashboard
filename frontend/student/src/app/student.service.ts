@@ -13,7 +13,7 @@ export class StudentService {
 
 validForm(studentData) {
 
-
-  return this.http.post('http://localhost:4000/create', { studentData }, { responseType: 'text'}).toPromise();
+console.log(studentData)
+  return this.http.post('http://localhost:4000/create', { studentData }).toPromise();
 }
 }

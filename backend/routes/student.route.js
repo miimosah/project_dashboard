@@ -7,7 +7,8 @@ let Student = require('../models/Student');
 
 // Add Student 
 studentRoute.route('/create').post((req, res, next) => {
-    Student.create(req.body, (error, data) => {
+    Student.create(req.body.studentData, (error, data) => {
+        console.log(req.body.studentData)
         if (error) {
             return next(error)
         } else {
