@@ -16,4 +16,7 @@ validForm(studentData) {
 console.log(studentData)
   return this.http.post('http://localhost:4000/create', { studentData }).toPromise();
 }
+addNote(studentData){
+  return this.http.post('http://localhost:4000/addGrades/:username', { studentData }).toPromise();
+}
 }
