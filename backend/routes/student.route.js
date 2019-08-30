@@ -32,12 +32,13 @@ studentRoute.route('/allStudents').get((req, res) => {
 
 studentRoute.route('/newProject').post((req, res) => {
     Student.find(
-        {class: "Dev web"},
+        
         ((err, data) => {
             data.map((student) => {
-                student.projects.push(req.body)
+                let myObj = { projectname: req.body.studentProject.projectname, classname: req.body.studentProject.classname }
+                student.projects.push(myObj)
                 student.save();
-                console.log(student.projects)
+               
             })
             res.send("le projet a bien été ajouté")           
         })    
@@ -56,10 +57,10 @@ studentRoute.route('/addGrades/:username').post((req, res) =>{
             }
             console.log(data)
             data.map((student) => {
-                let myObj = {comments: req.body.comments, grade: req.body.grades}
-                student.projects.push(myObj)
+                let myObj = { comments: req.body.comments, grade: req.body.grade}
+                student.grades.push(myObj)
                 student.save();
-                console.log(student.projects)
+                console.log(student.grades)
             })
             res.send("les notes ont bien été ajouté")
         })

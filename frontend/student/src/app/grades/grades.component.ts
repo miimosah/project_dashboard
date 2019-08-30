@@ -4,36 +4,33 @@ import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
-  selector: 'app-prof',
-  templateUrl: './prof.component.html',
-  styleUrls: ['./prof.component.css']
+  selector: 'app-grades',
+  templateUrl: './grades.component.html',
+  styleUrls: ['./grades.component.css']
 })
-export class ProfComponent implements OnInit {
+export class GradesComponent implements OnInit {
 
- 
   ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
 
   student = new FormGroup({
 
-    projectname: new FormControl(''),
-    classname: new FormControl('')
+    comments:  new FormControl(''),
+    grade: new FormControl('')
 
   });
-  constructor(private StudentService: StudentService, private modalService: NgbModal, private router: Router) {}
+  constructor(private StudentService: StudentService, private modalService: NgbModal, private router: Router) { }
 
-
-  addProject() {
+  addGrade() {
     console.log(this.student.value);
-    let studentProject = this.student.value;
+    let studentGrade = this.student.value;
 
-    this.StudentService.addProject(studentProject).then(() => {
-      this.StudentService.addProject(studentProject);
+    this.StudentService.addGrade(studentGrade).then(() => {
+      this.StudentService.addGrade(studentGrade);
 
-      console.log(studentProject);
+      console.log(studentGrade);
     })
   }
 

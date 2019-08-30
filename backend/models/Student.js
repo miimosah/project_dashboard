@@ -30,14 +30,19 @@ let Student = new Schema({
     
     projects:[
         {
-             name: String,
-             grade: String,
-             comments: String
+             projectname: String,
+             classname: String
+            
         
         }
         
     ],
-    
+    grades:[
+        {
+            comments: String,
+            grade: String
+        }
+    ],
     
     absence: [
         { date: String }

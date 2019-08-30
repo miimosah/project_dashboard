@@ -16,7 +16,22 @@ validForm(studentData) {
 console.log(studentData)
   return this.http.post('http://localhost:4000/create', { studentData }).toPromise();
 }
-addNote(studentData){
-  return this.http.post('http://localhost:4000/addGrades/:username', { studentData }).toPromise();
+  addProject(studentProject){
+
+  console.log(studentProject)
+
+  return this.http.post('http://localhost:4000/newProject', { studentProject }).toPromise();
 }
+  addGrade(studentGrade) {
+
+    console.log(studentGrade)
+
+    return this.http.post('http://localhost:4000/addGrades/:username', { studentGrade }).toPromise();
+   }
+  // getStudent(studentGrade) {
+
+  //   console.log(studentGrade)
+
+  //   return this.http.get('http://localhost:4000/allStudents').toPromise();
+  // }
 }

@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +9,31 @@
     <title>Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container" ng-controller="AppCtrl">
 
         <ng-template #content let-modal>
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">New Project</h4>
+                <h4 class="modal-title" id="modal-basic-title">Student Grades</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-            <form [formGroup]='student'>
-            
-                <div div class="form-group">
-                    <label for="inputFirstname4">Project name</label>
-                    <input type="text" class="form-control" placeholder="project name" formControlName='projectname'>
-                </div>
-                <div div class="form-group">
-                    <label for="inputLastname4">Class</label>
-                    <input type="text" class="form-control" placeholder="Class name" formControlName='classname'>
-                </div>
-            <button (click)='addProject()' type="submit" class="btn btn-primary">Add</button>
-            
-            </form>
+                <form [formGroup]='student'>
+
+                    <div div class="form-group">
+                        <label for="inputFirstname4">Grade</label>
+                        <input type="text" class="form-control" placeholder="add grade" formControlName='grade'>
+                    </div>
+                    <div div class="form-group">
+                        <label for="inputLastname4">Comments</label>
+                        <input type="text" class="form-control" placeholder="Add comment" formControlName='comments'>
+                    </div>
+                    <button (click)='addGrade()' type="submit" class="btn btn-primary">Add</button>
+
+                </form>
 
 
             </div>
@@ -39,16 +41,17 @@
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('close click')">close</button>
             </div>
         </ng-template>
-        
-        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Project</button>
-        
+
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Grades</button>
+
         <hr>
-        
+
         <pre>{{closeResult}}</pre>
-       
+
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

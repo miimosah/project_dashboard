@@ -45,7 +45,7 @@ export class InscriptionComponent implements OnInit {
       console.log(studentData);
     })
   }
-  
+
   closeResult: string;
 
   
